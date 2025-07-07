@@ -13,6 +13,7 @@ import { isUserAuthenticated } from "./middlewares/isUserAuthenticated";
 import uploadConfig from "./config/multer";
 import { ListByCategoryController } from "./controllers/product/ListByCategoryController";
 import { CreateOrderController } from "./controllers/order/CreateOrderController";
+import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
 
 const router = Router();
 
@@ -58,5 +59,7 @@ router.get(
 // -- ROTAS ORDER
 
 router.post("/order", isUserAuthenticated, new CreateOrderController().handle);
+
+router.delete("/order", isUserAuthenticated, new RemoveOrderController().handle);
 
 export { router };
