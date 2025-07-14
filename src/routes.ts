@@ -18,6 +18,7 @@ import { AddItemController } from "./controllers/order/AddItemController";
 import { RemoveItemController } from "./controllers/order/RemoveItemController";
 import { SendOrderController } from "./controllers/order/SendOrderController";
 import { ListOrdersController } from "./controllers/order/ListOrdersController";
+import { DetailsOrderController } from "./controllers/order/DetailsOrderController";
 
 const router = Router();
 
@@ -85,5 +86,11 @@ router.put(
 );
 
 router.get("/orders", isUserAuthenticated, new ListOrdersController().handle);
+
+router.get(
+  "/order/details",
+  isUserAuthenticated,
+  new DetailsOrderController().handle
+);
 
 export { router };
